@@ -1,29 +1,21 @@
 // const fields = {};
 
-// const fields = [
-//   'club.name',
-//   'club.city',
-//   'members',
-//   'members[].firstname',
-//   'members[].lastname',
-//   'members[].hobbies',
-//   'members[].hobbies[]',
-// ];
+const fields = [
+  'club.name',
+  'club.city',
+  'members',
+  'members[].firstname',
+  'members[].lastname',
+  'members[].hobbies',
+  'members[].hobbies[]',
+];
 
 const values = {
   club: {
     name: 'Jazz Club',
     city: 'New York',
   },
-  members: [{
-    firstname: 'Clint',
-    lastname: 'Eastwood',
-    hobbies: ['Soccer', 'Baseball'],
-  }, {
-    firstname: 'Charlie',
-    lastname: 'Chaplin',
-    hobbies: ['Golf', 'Basket'],
-  }],
+  // members: [],
 };
 
 const labels = {
@@ -36,4 +28,4 @@ const labels = {
   'members[].hobbies': 'Label Member Hobby',
 };
 
-export default { values, labels };
+export default { fields, values, labels };
