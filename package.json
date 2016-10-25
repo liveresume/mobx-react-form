@@ -1,98 +1,58 @@
 {
-  "name": "mobx-react-form",
+  "private": true,
+  "name": "mobx-react-form-demo",
   "license": "MIT",
-  "version": "0.0.0-semantically-released",
+  "version": "1.0.0",
   "author": "Claudio Savino <claudio.savino@me.com> (https://twitter.com/foxhound87)",
   "description": "Automagically manage React forms state and automatic validation with MobX.",
   "homepage": "https://www.npmjs.com/package/mobx-react-form",
-  "main": "lib/index.js",
-  "scripts": {
-    "clean:build": "rimraf lib && rimraf umd",
-    "clean:modules": "rimraf node_modules && npm cache clean",
-    "clean:all": "npm run clean:build && npm run clean:modules",
-    "lint": "eslint . --ext .jsx,.js --ignore-path .gitignore",
-    "build": "npm-run-all --parallel build:*",
-    "build:main": "babel -d lib/ src/",
-    "build:umd": "webpack --output-filename mobx-react-form.umd.js",
-    "build:umdmin": "webpack --output-filename mobx-react-form.umd.min.js -p",
-    "prebuild": "npm run clean:build",
-    "commit": "git add . && git-cz && git push origin",
-    "watch:build": "babel --watch -d lib/ src/",
-    "watch:test": "npm run test -- -w",
-    "test": "mocha tests --compilers js:babel-register",
-    "cover": "nyc npm test",
-    "coverage:check": "nyc check-coverage --satements 85 --branches 70 --functions 85 --lines 85",
-    "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "release": "semantic-release pre && npm publish && semantic-release post"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/foxhound87/mobx-react-form.git"
   },
-  "keywords": [
-    "form",
-    "react",
-    "mobx",
-    "state",
-    "validation",
-    "validator",
-    "json",
-    "schema",
-    "ajv"
-  ],
-  "files": [
-    "es6",
-    "lib",
-    "umd"
-  ],
-  "engines": {
-    "node": ">=4"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    },
-    "ghooks": {
-      "pre-commit": "npm run lint && npm run cover"
-    }
+  "scripts": {
+    "start": "webpack-dev-server --port 8888"
   },
   "dependencies": {
-    "lodash": "^4.16.2"
-  },
-  "peerDependencies": {
-    "mobx": "^2.6.0"
+    "ajv": "4.7.7",
+    "bluebird": "3.4.6",
+    "classnames": "2.2.5",
+    "font-awesome": "4.6.3",
+    "lodash": "4.16.4",
+    "material-ui": "0.16.0",
+    "mobx": "2.6.0",
+    "mobx-react": "3.5.8",
+    "mobx-react-form": "1.12.1",
+    "moment": "2.15.1",
+    "postcss-import": "8.1.2",
+    "postcss-url": "5.1.2",
+    "react": "15.3.2",
+    "react-dock": "0.2.3",
+    "react-dom": "15.3.2",
+    "react-draggable": "2.2.2",
+    "react-json-tree": "0.9.0",
+    "react-select": "1.0.0-rc.2",
+    "react-tap-event-plugin": "1.0.0",
+    "react-tooltip": "3.2.1",
+    "react-widgets": "3.4.4",
+    "validatorjs": "3.7.0"
   },
   "devDependencies": {
-    "ajv": "4.7.7",
-    "babel-cli": "6.16.0",
-    "babel-eslint": "7.0.0",
     "babel-loader": "6.2.5",
-    "babel-plugin-add-module-exports": "0.2.1",
-    "babel-plugin-lodash": "3.2.9",
-    "babel-plugin-transform-class-properties": "6.16.0",
-    "babel-plugin-transform-decorators-legacy": "1.3.4",
     "babel-preset-es2015": "6.16.0",
+    "babel-preset-react": "6.16.0",
     "babel-preset-stage-0": "6.16.0",
-    "babel-register": "6.16.3",
-    "chai": "3.5.0",
-    "codecov": "1.0.1",
-    "commitizen": "2.8.6",
-    "cz-conventional-changelog": "1.2.0",
-    "eslint": "3.8.0",
-    "eslint-config-airbnb": "12.0.0",
-    "eslint-plugin-import": "1.16.0",
-    "eslint-plugin-jsx-a11y": "2.2.3",
-    "eslint-plugin-react": "6.4.1",
-    "ghooks": "1.3.2",
+    "css-loader": "0.25.0",
+    "file-loader": "0.9.0",
+    "html-webpack-plugin": "2.22.0",
     "json-loader": "0.5.4",
-    "mobx": "2.6.0",
-    "mocha": "3.1.2",
-    "npm-run-all": "3.1.0",
-    "nyc": "8.3.1",
-    "path": "0.12.7",
-    "rimraf": "2.5.4",
-    "semantic-release": "4.3.5",
-    "validatorjs": "3.7.0",
-    "webpack": "1.13.2"
+    "less": "2.7.1",
+    "less-loader": "2.2.3",
+    "mobx-react-devtools": "4.2.9",
+    "postcss-loader": "0.13.0",
+    "style-loader": "0.13.1",
+    "url-loader": "0.5.7",
+    "webpack": "1.13.2",
+    "webpack-dev-server": "1.16.2"
   }
 }

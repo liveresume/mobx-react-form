@@ -1,12 +1,4 @@
-/coverage
-/demo/build
-/demo/node_modules
-/es6
-/lib
+/build
 /node_modules
-/umd
-/.nyc_output
 npm-debug.log
-coverage.lcov
-codecov.yml
 yarn.lock
