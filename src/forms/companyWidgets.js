@@ -1,4 +1,4 @@
-export default{
+export default {
   fields: {
     name: {
       label: 'Company Name',

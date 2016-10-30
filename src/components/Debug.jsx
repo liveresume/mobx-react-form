@@ -8,6 +8,12 @@ import JSONTree from 'react-json-tree';
 import cx from 'classnames';
 import _ from 'lodash';
 
+/* map object */
+function mapo(object, callback) {
+  return Object.keys(object).map(key =>
+    callback(key, object[key]));
+}
+
 const tools = observable({
   open: true,
   heading: {
@@ -94,28 +100,93 @@ const parseFieldsData = fields =>
     return obj;
   }, {});
 
-const handleOnSizeChange = action('size-change', (size) => {
+const handleOnSizeChange = action((size) => {
   _.set(dock, 'size', size);
   _.set(tools, 'heading.name', (size > 0.22));
   _.set(tools, 'heading.sub', (size > 0.11));
 });
 
-const handleOnCloseTools = action('close-tools', (e) => {
+const handleOnCloseTools = action((e) => {
   e.preventDefault();
   _.set(tools, 'open', false);
 });
 
-const handleOnOpenTools = action('open-tools', (e) => {
+const handleOnOpenTools = action((e) => {
   e.preventDefault();
   _.set(tools, 'open', true);
 });
 
-const handleOnOpenDoc = action('open-tools', (e) => {
+const handleOnOpenDoc = action((e) => {
   e.preventDefault();
   window.open('https://foxhound87.github.io/mobx-react-form/', '_blank'); // eslint-disable-line
 });
 
-export default observer(({ form }) => (
+const handleSelect = action((e, actions) => {
+  actions.select(e.target.value);
+});
+
+const handleInitialFormSelect = action((e, key, actions) => {
+  e.preventDefault();
+  actions.select(e.target.value);
+});
+
+const SelectMenu = observer(({ store, actions }) =>
+  <select
+    name="mobx-react-form-devtools-select"
+    value={store.selected.key}
+    onChange={e => handleSelect(e, actions)}
+  >
+    {_.map(store.menu, ($val, $key) =>
+      <option key={$key} value={$key}>{$val}</option>
+    )}
+  </select>
+);
+
+const SelectInitialForm = observer(({ store, actions }) =>
+  <div>
+    <h4>SELECT A FORM</h4>
+    <div className="initialMenu">
+      {mapo(store.menu, (key, val) =>
+        <button
+          key={key}
+          value={key}
+          onClick={e => handleInitialFormSelect(e, key, actions)}
+        >
+          <i className="fa fa-circle-o" /> {val}
+        </button>
+      )}
+    </div>
+  </div>
+);
+
+
+const RenderFormData = observer(({ store, actions }) =>
+  <div className="tree">
+    <h3 className="clearfix">
+      <div className="left title">
+        <i className="fa fa-th" /> Form
+      </div>
+      <div className="right select">
+        <SelectMenu store={store} actions={actions} />
+      </div>
+    </h3>
+    <JSONTree
+      hideRoot
+      data={parseFormData(store.selected.form)}
+      theme={theme}
+      isLightTheme={false}
+    />
+    <h4><i className="fa fa-bars" /> Fields</h4>
+    <JSONTree
+      hideRoot
+      data={parseFieldsData(store.selected.form.fields)}
+      theme={theme}
+      isLightTheme={false}
+    />
+  </div>
+);
+
+export default observer(({ store, actions }) => (
   <Dock
     defaultSize={tools.open ? dock.size : 0}
     size={tools.open ? dock.size : 0}
@@ -127,6 +198,7 @@ export default observer(({ form }) => (
     dockStyle={dock.style}
   >
     <ReactTooltip />
+
     <Draggable
       axis="y"
       handle=".handle"
@@ -145,6 +217,7 @@ export default observer(({ form }) => (
         </button>
       </div>
     </Draggable>
+
     <div className="tools">
       <div className="heading clearfix">
         <div className="left">
@@ -158,22 +231,10 @@ export default observer(({ form }) => (
           <i className="fa fa-book" />
         </button>
       </div>
+      {(store.selected.form && store.selected.key)
+        ? <RenderFormData store={store} actions={actions} />
+        : <SelectInitialForm store={store} actions={actions} />}
 
-      <h4><i className="fa fa-th" /> Form</h4>
-      <JSONTree
-        hideRoot
-        data={parseFormData(form)}
-        theme={theme}
-        isLightTheme={false}
-      />
-
-      <h4><i className="fa fa-bars" /> Fields</h4>
-      <JSONTree
-        hideRoot
-        data={parseFieldsData(form.fields)}
-        theme={theme}
-        isLightTheme={false}
-      />
     </div>
   </Dock>
 ));

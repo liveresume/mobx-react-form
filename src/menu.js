@@ -1,5 +1,5 @@
 export default {
-  withNestedFields: false,
+  nestedFields: false,
   registerMaterial: true,
   registerSimple: false,
   companyWidgets: false,

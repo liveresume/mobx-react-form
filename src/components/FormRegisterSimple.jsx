@@ -1,6 +1,5 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import DebugForm from './Debug';
 
 export default observer(({ form }) => (
   <div className="container normal">
@@ -94,11 +93,6 @@ export default observer(({ form }) => (
       </div>
 
       <p><i>{form.error}</i></p>
-
     </form>
-
-    <div className="mobx-react-form-devtools">
-      <DebugForm form={form} />
-    </div>
   </div>
 ));

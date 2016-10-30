@@ -7,23 +7,23 @@ import FormRegisterSimple from './FormRegisterSimple';
 import FormCompanyWidgets from './FormCompanyWidgets';
 import FormCompanySimple from './FormCompanySimple';
 
-const Switch = ({ menu, form }) => {
+const Switch = ({ menu, forms }) => {
   switch (true) {
 
-    case menu.withNestedFields:
-      return (<FormWithNestedFields form={form.withNestedFields} />);
+    case menu.nestedFields:
+      return (<FormWithNestedFields form={forms.nestedFields} />);
 
     case menu.registerMaterial:
-      return (<FormRegisterMaterial form={form.registerMaterial} />);
+      return (<FormRegisterMaterial form={forms.registerMaterial} />);
 
     case menu.registerSimple:
-      return (<FormRegisterSimple form={form.registerSimple} />);
+      return (<FormRegisterSimple form={forms.registerSimple} />);
 
     case menu.companyWidgets:
-      return (<FormCompanyWidgets form={form.companyWidgets} />);
+      return (<FormCompanyWidgets form={forms.companyWidgets} />);
 
     case menu.companySimple:
-      return (<FormCompanySimple form={form.companySimple} />);
+      return (<FormCompanySimple form={forms.companySimple} />);
 
     default: return null;
   }
@@ -31,7 +31,7 @@ const Switch = ({ menu, form }) => {
 
 Switch.propTypes = {
   menu: React.PropTypes.object,
-  form: React.PropTypes.object,
+  forms: React.PropTypes.object,
 };
 
 export default observer(Switch);

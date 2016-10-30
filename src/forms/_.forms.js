@@ -2,7 +2,7 @@ import validatorjs from 'validatorjs';
 import Form from './_.extend';
 
 // forms
-import withNestedFields from './withNestedFields';
+import nestedFields from './nestedFields';
 import registerSimple from './registerSimple';
 import registerMaterial from './registerMaterial';
 import companySimple from './companySimple';
@@ -19,7 +19,7 @@ const plugins = {
   },
 };
 
-class FormWithNestedFields extends Form {
+class NestedFieldsForm extends Form {
 
   // onInit($form) {
     // console.log('ON INIT');
@@ -33,24 +33,24 @@ class CompanyWidgetsForm extends Form {}
 
 export default {
 
-  withNestedFields: new FormWithNestedFields({
-    plugins, ...withNestedFields,
-  }, 'FormWithNestedFields'),
+  nestedFields: new NestedFieldsForm({
+    plugins, ...nestedFields,
+  }, 'Nested Fields'),
 
   registerMaterial: new RegisterMaterialForm({
     plugins, ...registerMaterial,
-  }, 'RegisterMaterialForm'),
+  }, 'Register Material'),
 
   registerSimple: new RegisterSimpleForm({
     plugins, ...registerSimple,
-  }, 'RegisterSimpleForm'),
+  }, 'Register Simple'),
 
   companySimple: new CompanySimpleForm({
     plugins, ...companySimple,
-  }),
+  }, 'Company Simple'),
 
   companyWidgets: new CompanyWidgetsForm({
     plugins, ...companyWidgets,
-  }, 'CompanyWidgetsForm'),
+  }, 'Company Widgets'),
 
 };

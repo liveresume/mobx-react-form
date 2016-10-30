@@ -3,10 +3,13 @@ import { observer } from 'mobx-react';
 import { action } from 'mobx';
 import _ from 'lodash';
 
+import MobxReactFormDevTools from './DevTools';
+
 const switchTo = action((e, menu) => {
   e.preventDefault();
   _.map(menu, ($val, $key) => _.set(menu, $key, false));
   _.set(menu, e.target.value, true);
+  MobxReactFormDevTools.select(e.target.value);
 });
 
 const Menu = ({ data }) => (
@@ -30,7 +33,7 @@ const Menu = ({ data }) => (
         <option value="registerSimple">Register (Simple)</option>
         <option value="companyWidgets">Company (React Widgets)</option>
         <option value="companySimple">Company (Simple)</option>
-        <option value="withNestedFields">Nested Fields</option>
+        <option value="nestedFields">Nested Fields</option>
       </select>
     </span>
   </div>

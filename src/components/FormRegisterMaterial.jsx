@@ -3,7 +3,6 @@ import { observer } from 'mobx-react';
 
 import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
-import DebugForm from './Debug';
 
 export default observer(({ form }) => (
   <div className="container material">
@@ -89,11 +88,6 @@ export default observer(({ form }) => (
       </div>
 
       <p><i>{form.error}</i></p>
-
     </form>
-
-    <div className="mobx-react-form-devtools">
-      <DebugForm form={form} />
-    </div>
   </div>
 ));
