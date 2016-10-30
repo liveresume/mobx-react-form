@@ -31,11 +31,6 @@ const loaders = [{
 const postcss = $webpack => [
   postcssImport({ addDependencyTo: $webpack }),
   postcssUrl('inline'),
-  // postcssExtend,
-  // postcssFocus,
-  // autoprefixer,
-  // precss,
-  // cssnano,
 ];
 
 module.exports = {
