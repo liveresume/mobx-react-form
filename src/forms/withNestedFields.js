@@ -15,7 +15,15 @@ const values = {
     name: 'Jazz Club',
     city: 'New York',
   },
-  // members: [],
+  members: [{
+    firstname: 'Clint',
+    lastname: 'Eastwood',
+    hobbies: ['Soccer', 'Baseball'],
+  }, {
+    firstname: 'Charlie',
+    lastname: 'Chaplin',
+    hobbies: ['Golf', 'Basket'],
+  }],
 };
 
 const labels = {

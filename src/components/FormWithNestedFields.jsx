@@ -110,7 +110,7 @@ const MembersFields = observer(({ form }) => (
   </div>
 ));
 
-const FormWithNestedFields = observer(({ form }) => (
+export default observer(({ form }) => (
   <div className="container normal">
     <form>
       <h2>Nested Fields</h2>
@@ -193,5 +193,3 @@ const FormWithNestedFields = observer(({ form }) => (
     </div>
   </div>
 ));
-
-export default FormWithNestedFields;

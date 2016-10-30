@@ -5,7 +5,7 @@ import DebugForm from './Debug';
 
 const products = ['iPhone', 'Watch', 'iMac', 'Mac Pro', 'MacBook Air', 'MacBook Pro'];
 
-const FormCompany = ({ form }) => (
+export default observer(({ form }) => (
   <div className="container normal">
     <form>
       <h2>Form Company</h2>
@@ -98,10 +98,4 @@ const FormCompany = ({ form }) => (
       <DebugForm form={form} />
     </div>
   </div>
-);
-
-FormCompany.propTypes = {
-  form: React.PropTypes.object,
-};
-
-export default observer(FormCompany);
+));

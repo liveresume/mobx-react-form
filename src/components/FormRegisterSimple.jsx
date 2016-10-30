@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import DebugForm from './Debug';
 
-const FormRegister = ({ form }) => (
+export default observer(({ form }) => (
   <div className="container normal">
     <form>
       <h2>Form Register</h2>
@@ -101,10 +101,4 @@ const FormRegister = ({ form }) => (
       <DebugForm form={form} />
     </div>
   </div>
-);
-
-FormRegister.propTypes = {
-  form: React.PropTypes.object,
-};
-
-export default observer(FormRegister);
+));

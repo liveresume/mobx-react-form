@@ -5,7 +5,7 @@ import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
 import DebugForm from './Debug';
 
-const FormRegister = ({ form }) => (
+export default observer(({ form }) => (
   <div className="container material">
     <form>
       <h2>Form Register</h2>
@@ -96,10 +96,4 @@ const FormRegister = ({ form }) => (
       <DebugForm form={form} />
     </div>
   </div>
-);
-
-FormRegister.propTypes = {
-  form: React.PropTypes.object,
-};
-
-export default observer(FormRegister);
+));
