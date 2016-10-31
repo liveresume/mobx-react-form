@@ -21,6 +21,7 @@
     "material-ui": "0.16.0",
     "mobx": "2.6.0",
     "mobx-react": "3.5.8",
+    "mobx-react-form-devtools": "1.0.1",
     "moment": "2.15.1",
     "postcss-import": "8.1.2",
     "postcss-url": "5.1.2",

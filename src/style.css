@@ -165,5 +165,5 @@ button:focus {
 }
 
 @media screen and (min-width: 0px) and (max-width: 450px) {
-  .menu span.label { display: none; }
+  .menu span.label, .menu a.right { display: none; }
 }

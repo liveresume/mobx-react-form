@@ -3,7 +3,9 @@ import { observable } from 'mobx';
 import { observer } from 'mobx-react';
 import ReactTooltip from 'react-tooltip';
 import DevTools from 'mobx-react-devtools';
-import MobxReactFormDevTools from './DevTools';
+
+import MobxReactFormDevTools from 'mobx-react-form-devtools';
+// import MobxReactFormDevTools from '../../devtools/lib';
 
 import Menu from './Menu';
 import Switch from './Switch';

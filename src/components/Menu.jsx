@@ -3,7 +3,8 @@ import { observer } from 'mobx-react';
 import { action } from 'mobx';
 import _ from 'lodash';
 
-import MobxReactFormDevTools from './DevTools';
+import MobxReactFormDevTools from 'mobx-react-form-devtools';
+// import MobxReactFormDevTools from '../../devtools/lib';
 
 const switchTo = action((e, menu) => {
   e.preventDefault();
