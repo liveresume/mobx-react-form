@@ -21,11 +21,8 @@ const loaders = [{
   test: /\.css$/,
   loader: 'style-loader!css-loader!postcss-loader',
 }, {
-  test: /\.woff(2)?(\?v=[0-9].[0-9].[0-9])?$/,
-  loader: 'url-loader?mimetype=application/font-woff',
-}, {
-  test: /\.(ttf|eot|svg)(\?v=[0-9].[0-9].[0-9])?$/,
-  loader: 'file-loader?name=[name].[ext]',
+  test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
+  loader: 'url-loader',
 }];
 
 const postcss = $webpack => [
